@@ -7,32 +7,33 @@ var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"
 
 var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-var special = [" ", "!", "\"", "#", "$", "%", "&", "\'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "~"];
+var special = ["!", "\"", "#", "$", "%", "&", "\'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "~"];
+
+///
+
+var passwordLength = 0;
 
 comboArray=[];
 
 notValidInput = true;
 
-var passwordLength;
-
 /////
 
-console.log("Hi, Im working!")
+var passwordGen = [];
 
-/////
+var test = 2;
 
+///
 
-function generatedPassword() {
-
-  
+function characterCriteria(){
 
   while(notValidInput){
 
     var passwordInputLength = prompt("How long you want your password to be? pick a number between 8 and 128.");
 
-    var passwordLength = parseInt(passwordInputLength)
+    passwordLength = parseInt(passwordInputLength)
 
-    if (!isNaN(passwordLength) && 8 < passwordLength && passwordLength < 128) {
+    if (!isNaN(passwordLength) && 7 < passwordLength && passwordLength < 129) {
 
       notValidInput = false;
 
@@ -43,9 +44,6 @@ function generatedPassword() {
       alert("Please input a number between 8 and 128");
     }
   }
-  
-console.log(comboArray);
-
 
   var lowerCaseIsTrue = confirm("Would you like to use lowercase letters in your password?");
 
@@ -91,6 +89,24 @@ console.log(comboArray);
 
 }
 
+function randomCharacter() {
+  return Math.floor(Math.random() * comboArray.length);
+}
+
+
+function generatedPassword() {
+
+  for(i = 0; i < passwordLength; i++) {
+    passwordGen.push(comboArray[randomCharacter()]);
+  }
+    
+  return passwordGen.join("");
+
+}
+
+
+
+console.log(characterCriteria());
 console.log(generatedPassword());
 
 
@@ -107,41 +123,6 @@ console.log(generatedPassword());
 
 // // Add event listener to generate button
 // generateBtn.addEventListener("click", writePassword);
-
-
-// GLOBAL
-// array 
-// array 
-// array 
-// array 
-
-
-
-// LOCAL
-// generatedPassword()
-
-// prompt
-
-// CONFIRMS
-// CONFIRMS
-// CONFIRMS
-// CONFIRMS
-
-// Valid Input 
-
-// if statement {
-
-// }
-
-// if statement {
-  
-// }
-// if statement {
-  
-// }
-// if statement {
-  
-// }
 
 
 
