@@ -25,11 +25,15 @@ function writePassword(){
 
   notValidInput = true;
 
+  clearText();
+
   while(notValidInput){
 
     var passwordInputLength = prompt("How long you want your password to be? pick a number between 8 and 128.");
 
     passwordLength = parseInt(passwordInputLength)
+
+    console.log(passwordLength);
 
     if (!isNaN(passwordLength) && 7 < passwordLength && passwordLength < 129) {
 
@@ -106,11 +110,9 @@ function generatePassword() {
 
 function clearText() {
 
-  var clearMe = "";
   var newText = document.getElementById("password");
-  newText.value = clearMe;
+  newText.value = "";
 
-  return clearMe
 }
 
 
