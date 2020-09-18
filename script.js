@@ -15,17 +15,24 @@ var passwordLength = 0;
 
 var comboArray=[];
 
-var notValidInput = true;
+//figure out a way to start as false
+var notValidInput = true; 
 
 var passwordGen = [];
 
 ///
 
+ 
+
+
+
 function writePassword(){
 
   notValidInput = true;
 
-  clearText();
+
+
+  console.log(password.value);
 
   while(notValidInput){
 
