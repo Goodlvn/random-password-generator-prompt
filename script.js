@@ -9,7 +9,7 @@ var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 var special = [" ", "!", "\"", "#", "$", "%", "&", "\'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "~"];
 
-ComboArray=[];
+comboArray=[];
 
 notValidInput = true;
 
@@ -44,27 +44,8 @@ function generatedPassword() {
     }
   }
   
+console.log(comboArray);
 
-
-
-
-
-  
-
-//have to do more work here in the validation of the input - maybe use some sort of number validator and range validator (a small loop of its own)
-//if passwordLength is valid 
-  // if (passwordInputLength) {
-
-  //   var passwordLength = passwordLength + passwordInputLength;
-
-  // } else if(!passwordInputLength) {
-
-  //   var passwordInputLength = prompt("How long you want your password to be? pick a number between 8 and 128.");
-
-  // } 
-
-  console.log("I'm still working");
-  console.log(passwordLength);
 
   var lowerCaseIsTrue = confirm("Would you like to use lowercase letters in your password?");
 
@@ -74,17 +55,39 @@ function generatedPassword() {
 
   var specialIsTrue = confirm("would you like to use special characters in your password?");
 
+  console.log(comboArray);
 
   if (lowerCaseIsTrue || upperCaseIsTrue || numbersIsTrue || specialIsTrue) {
 
     if(lowerCaseIsTrue) {
-      
+
+      comboArray.push.apply(comboArray, lowerCase);
+
     }
+
+    if(upperCaseIsTrue) {
+
+      comboArray.push.apply(comboArray, upperCase);
+
+    }
+
+    if(numbersIsTrue) {
+
+      comboArray.push.apply(comboArray, numbers);
+
+    }
+
+    if(specialIsTrue) {
+
+      comboArray.push.apply(comboArray, special);
+
+    }
+
+    console.log(comboArray);
 
   } else {
     alert("Please refresh the page and start all over. You must choose at least one character criteria to continue");
   }
-
 
 }
 
