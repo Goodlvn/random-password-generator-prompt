@@ -20,6 +20,13 @@ var notValidInput = true;
 
 var passwordGen = [];
 
+var ranLower;
+
+var ranUpper;
+
+var ranNumber;
+
+var ranSpecial;
 ///
 
  
@@ -29,10 +36,6 @@ var passwordGen = [];
 function writePassword(){
 
   notValidInput = true;
-
-
-
-  console.log(password.value);
 
   while(notValidInput){
 
@@ -54,33 +57,50 @@ function writePassword(){
     }
   }
 
-  var lowerCaseIsTrue = confirm("Would you like to use lowercase letters in your password?");
+  lowerCaseIsTrue = confirm("Would you like to use lowercase letters in your password?");
 
-  var upperCaseIsTrue = confirm("would you like to use uppercase letters in your password?");
+  upperCaseIsTrue = confirm("would you like to use uppercase letters in your password?");
 
-  var numbersIsTrue = confirm("would you like to use numbers in your password?");
+  numbersIsTrue = confirm("would you like to use numbers in your password?");
 
-  var specialIsTrue = confirm("would you like to use special characters in your password?");
+  specialIsTrue = confirm("would you like to use special characters in your password?");
 
 
   if (lowerCaseIsTrue || upperCaseIsTrue || numbersIsTrue || specialIsTrue) {
 
     if(lowerCaseIsTrue) {
 
+      ranumL = Math.floor(Math.random() * lowerCase.length);
+
+      ranLower = lowerCase[ranumL];
+
       comboArray.push.apply(comboArray, lowerCase);
+
     }
 
     if(upperCaseIsTrue) {
+
+      ranumU = Math.floor(Math.random() * upperCase.length);
+
+      ranUpper = upperCase[ranumU];
 
       comboArray.push.apply(comboArray, upperCase);
     }
 
     if(numbersIsTrue) {
 
+      ranumN = Math.floor(Math.random() * numbers.length);
+
+      ranNumber = numbers[ranumN];
+
       comboArray.push.apply(comboArray, numbers);
     }
 
     if(specialIsTrue) {
+
+      ranumS = Math.floor(Math.random() * special.length);
+
+      ranSpecial = special[ranumS];
 
       comboArray.push.apply(comboArray, special);
     }
@@ -111,6 +131,30 @@ function generatePassword() {
 
     passwordGen.push(comboArray[randomCharacter()]);
   } 
+
+  if(lowerCaseIsTrue) {
+    console.log(ranLower);
+
+    passwordGen[1] = ranLower;
+  }
+
+  if(upperCaseIsTrue) {
+    console.log(ranUpper);
+
+    passwordGen[3] = ranUpper;
+  }
+
+  if(numbersIsTrue) {
+    console.log(ranNumber);
+
+    passwordGen[5] = ranNumber;
+  }
+
+  if(specialIsTrue) {
+    console.log(ranSpecial);
+
+    passwordGen[7] = ranSpecial;
+  }
 
   return passwordGen.join("");
 }
