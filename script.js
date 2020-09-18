@@ -17,23 +17,13 @@ var comboArray=[];
 
 var notValidInput = true;
 
-var clearText = "";
-
-
-
-/////
-
 var passwordGen = [];
-
-var test = 2;
 
 ///
 
 function writePassword(){
 
   notValidInput = true;
-
-  document.getElementById("password").value = clearText;
 
   while(notValidInput){
 
@@ -44,7 +34,7 @@ function writePassword(){
     if (!isNaN(passwordLength) && 7 < passwordLength && passwordLength < 129) {
 
       notValidInput = false;
-
+      
     } else {
 
       passwordLength = 0;
@@ -61,48 +51,45 @@ function writePassword(){
 
   var specialIsTrue = confirm("would you like to use special characters in your password?");
 
+
   if (lowerCaseIsTrue || upperCaseIsTrue || numbersIsTrue || specialIsTrue) {
 
     if(lowerCaseIsTrue) {
 
       comboArray.push.apply(comboArray, lowerCase);
-
     }
 
     if(upperCaseIsTrue) {
 
       comboArray.push.apply(comboArray, upperCase);
-
     }
 
     if(numbersIsTrue) {
 
       comboArray.push.apply(comboArray, numbers);
-
     }
 
     if(specialIsTrue) {
 
       comboArray.push.apply(comboArray, special);
-
     }
 
   } else {
+
     alert("Please refresh the page and start all over. You must choose at least one character criteria to continue");
   }
 
-
   var password = generatePassword();
+
   var passwordText = document.getElementById("password");
 
   passwordText.value = password;
 
   return password
-
-
 }
 
 function randomCharacter() {
+
   return Math.floor(Math.random() * comboArray.length);
 }
 
@@ -110,9 +97,20 @@ function randomCharacter() {
 function generatePassword() {
 
   for(i = 0; i < passwordLength; i++) {
+
     passwordGen.push(comboArray[randomCharacter()]);
   } 
+
   return passwordGen.join("");
+}
+
+function clearText() {
+
+  var clearMe = "";
+  var newText = document.getElementById("password");
+  newText.value = clearMe;
+
+  return clearMe
 }
 
 
