@@ -1,4 +1,4 @@
-// Assignment Code
+// Variables 
 var generateBtn = document.getElementById("generate");
 
 var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
@@ -15,8 +15,6 @@ var passwordLength;
 
 var validInput = false; 
 
-// var passwordGen = [];
-
 var ranLower;
 
 var ranUpper;
@@ -25,10 +23,8 @@ var ranNumber;
 
 var ranSpecial;
 
-
+//Functions
 function writePassword(){
-
-  // var password = Math.floor(Math.random() * 100);
 
   var password = generatePassword();
 
@@ -37,24 +33,27 @@ function writePassword(){
   passwordText.value = password;
 }
 
-function randomCharacter() {
+function randomNumber(argument) {
 
-  return Math.floor(Math.random() * comboArray.length);
+  return Math.floor(Math.random() * argument);
+}
+
+function addValue(characterChoice){
+  comboArray.push.apply(comboArray, characterChoice);
 
 }
 
-
 function generatePassword() {
+
+  var numCheck = /^[0-9]+$/;
 
   validInput = false;
 
   while(!validInput){
 
-    var passwordInputLength = prompt("How long you want your password to be? pick a number between 8 and 128.");
+    passwordLength = prompt("How long you want your password to be? pick a number between 8 and 128.");
 
-    passwordLength = parseInt(passwordInputLength)
-
-    if (!isNaN(passwordLength) && 7 < passwordLength && passwordLength < 129) {
+      if (passwordLength.match(numCheck) && 7 < passwordLength && passwordLength < 129){
 
       validInput = true;
       
@@ -79,55 +78,53 @@ function generatePassword() {
 
     if(lowerCaseIsTrue) {
 
-      ranumL = Math.floor(Math.random() * lowerCase.length);
+      ranumL = randomNumber(lowerCase.length);
 
       ranLower = lowerCase[ranumL];
 
-      comboArray.push.apply(comboArray, lowerCase);
+      addValue(lowerCase);
 
     }
 
     if(upperCaseIsTrue) {
 
-      ranumU = Math.floor(Math.random() * upperCase.length);
+      ranumU = randomNumber(upperCase.length);
 
       ranUpper = upperCase[ranumU];
 
-      comboArray.push.apply(comboArray, upperCase);
+      addValue(upperCase);
     }
 
     if(numbersIsTrue) {
 
-      ranumN = Math.floor(Math.random() * numbers.length);
+      ranumN = randomNumber(numbers.length);
 
       ranNumber = numbers[ranumN];
 
-      comboArray.push.apply(comboArray, numbers);
+      addValue(numbers);
     }
 
     if(specialIsTrue) {
 
-      ranumS = Math.floor(Math.random() * special.length);
+      ranumS = randomNumber(special.length);
 
       ranSpecial = special[ranumS];
 
-      comboArray.push.apply(comboArray, special);
+      addValue(special);
     }
 
   } else {
 
     alert("Please refresh the page and start all over. You must choose at least one character criteria to continue");
   }
-  
-/// code that creates the password
+
+// Code that creates the password
 
   passwordGen = [];
 
   for(i = 0; i < passwordLength; i++) {
 
-    passwordGen.push(comboArray[randomCharacter()]);
-
-    console.log(passwordGen);
+    passwordGen.push(comboArray[randomNumber(comboArray.length)]);
   } 
 
   if(lowerCaseIsTrue) {
@@ -149,7 +146,7 @@ function generatePassword() {
   return passwordGen.join("");
 }
 
-// Add event listener to generate button
+//Button Call
 document.getElementById("generate").addEventListener("click", writePassword);
 
 
