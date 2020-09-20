@@ -1,6 +1,6 @@
 # random-password-generator-prompt
 
-In this [project](https://goodlvn.github.io/random-password-generator-prompt/) we are prompted to create a random password generator that outputs a strong password that meets given criteria. The criteria/parameters of the random password are input through built in browser functions that communicate and interact with the user. We used functions such as prompts, confirms, and alerts to make sure the program recived the proper criteria; length of characters, lower case letters, upper case letters, numbers, and special characters all being options. 
+In this [project](https://goodlvn.github.io/random-password-generator-prompt/) we are prompted to create a random password generator that outputs a strong password that meets given criteria. The criteria/parameters of the random password are input through built in browser functions that communicate and interact with the user. We used functions such as prompts, confirms, and alerts to make sure the program received the proper criteria; length of characters, lower case letters, upper case letters, numbers, and special characters all being options. 
 
 ## Screenshots of project 
 
@@ -98,7 +98,7 @@ while(!validInput){
 
 * Jennifer Henry - inspo for the lay out of logical flow of my code and the use of functions that condese repeated code
 
-* Kevin Luo - helped me with one of my bugs (text was not clearin upon request of new password) by directing my focus to the scope of my variables 
+* Kevin Luo - helped me with one of my bugs (text was not clearing upon request of new password) by directing my focus to the scope of my variables 
 
 
 
