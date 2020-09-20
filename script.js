@@ -9,16 +9,13 @@ var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 var special = ["!", "\"", "#", "$", "%", "&", "\'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "~"];
 
-///
-
-var passwordLength = 0;
-
 var comboArray=[];
 
-//figure out a way to start as false
-var notValidInput = true; 
+var passwordLength;
 
-var passwordGen = [];
+var validInput = false; 
+
+// var passwordGen = [];
 
 var ranLower;
 
@@ -27,27 +24,39 @@ var ranUpper;
 var ranNumber;
 
 var ranSpecial;
-///
-
- 
-
 
 
 function writePassword(){
 
-  notValidInput = true;
+  // var password = Math.floor(Math.random() * 100);
 
-  while(notValidInput){
+  var password = generatePassword();
+
+  var passwordText = document.getElementById("password");
+
+  passwordText.value = password;
+}
+
+function randomCharacter() {
+
+  return Math.floor(Math.random() * comboArray.length);
+
+}
+
+
+function generatePassword() {
+
+  validInput = false;
+
+  while(!validInput){
 
     var passwordInputLength = prompt("How long you want your password to be? pick a number between 8 and 128.");
 
     passwordLength = parseInt(passwordInputLength)
 
-    console.log(passwordLength);
-
     if (!isNaN(passwordLength) && 7 < passwordLength && passwordLength < 129) {
 
-      notValidInput = false;
+      validInput = true;
       
     } else {
 
@@ -109,63 +118,36 @@ function writePassword(){
 
     alert("Please refresh the page and start all over. You must choose at least one character criteria to continue");
   }
+  
+/// code that creates the password
 
-  var password = generatePassword();
-
-  var passwordText = document.getElementById("password");
-
-  passwordText.value = password;
-
-  return password
-}
-
-function randomCharacter() {
-
-  return Math.floor(Math.random() * comboArray.length);
-}
-
-
-function generatePassword() {
+  passwordGen = [];
 
   for(i = 0; i < passwordLength; i++) {
 
     passwordGen.push(comboArray[randomCharacter()]);
+
+    console.log(passwordGen);
   } 
 
   if(lowerCaseIsTrue) {
-    console.log(ranLower);
-
     passwordGen[1] = ranLower;
   }
 
   if(upperCaseIsTrue) {
-    console.log(ranUpper);
-
     passwordGen[3] = ranUpper;
   }
 
   if(numbersIsTrue) {
-    console.log(ranNumber);
-
     passwordGen[5] = ranNumber;
   }
 
   if(specialIsTrue) {
-    console.log(ranSpecial);
-
     passwordGen[7] = ranSpecial;
   }
 
   return passwordGen.join("");
 }
-
-function clearText() {
-
-  var newText = document.getElementById("password");
-  newText.value = "";
-
-}
-
 
 // Add event listener to generate button
 document.getElementById("generate").addEventListener("click", writePassword);
