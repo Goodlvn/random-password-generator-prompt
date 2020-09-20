@@ -40,7 +40,6 @@ function randomNumber(argument) {
 
 function addValue(characterChoice){
   comboArray.push.apply(comboArray, characterChoice);
-
 }
 
 function generatePassword() {
@@ -51,7 +50,7 @@ function generatePassword() {
 
   while(!validInput){
 
-    passwordLength = prompt("How long you want your password to be? pick a number between 8 and 128.");
+    passwordLength = prompt("How many characters would you like your password to have? pick a number between 8 and 128.");
 
       if (passwordLength.match(numCheck) && 7 < passwordLength && passwordLength < 129){
 
@@ -65,9 +64,9 @@ function generatePassword() {
     }
   }
 
-  lowerCaseIsTrue = confirm("Would you like to use lowercase letters in your password?");
+  lowerCaseIsTrue = confirm("Would you like to use lower case letters in your password?");
 
-  upperCaseIsTrue = confirm("would you like to use uppercase letters in your password?");
+  upperCaseIsTrue = confirm("would you like to use upper case letters in your password?");
 
   numbersIsTrue = confirm("would you like to use numbers in your password?");
 
