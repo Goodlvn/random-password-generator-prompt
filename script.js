@@ -57,8 +57,6 @@ function generatePassword() {
       validInput = true;
       
     } else {
-
-      passwordLength = 0;
       
       alert("Please input a number between 8 and 128");
     }
@@ -114,7 +112,7 @@ function generatePassword() {
 
   } else {
 
-    alert("Please refresh the page and start all over. You must choose at least one character criteria to continue");
+    alert("Please start again. You must choose at least one character criteria to continue");
   }
 
 // Code that creates the password

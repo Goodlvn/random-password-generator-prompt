@@ -33,7 +33,7 @@ generate password based on input criteria
 
 What makes this project stand out from the past homework assignments we have turned in is the fact that we had to think about and create our own logic in order to get the desired out come. Although we were given a couple of guidlines (i.e. writePassword function title, generatePassword function title, and the event listener that links the button to the start of the function) we had to use a combination of built in javascript functions, small side functions that condense code, and good logic flow to make the code work. We also had an oportunity to look past the scope of what we have learned in class in order to improve our code!
 
-### Side functions that condese code & Built in functions
+### Side functions that condense code & Built in functions
 ```
 function randomNumber(argument) {
 
